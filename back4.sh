@@ -14,5 +14,5 @@ hash=`md5sum $name | cut -f1 -d" "`
 
 [[ ! -d $dir/$hash ]] && { mkdir $dir/$hash ; echo "spliting .." ; convert -coalesce $name $dir/$hash/$hash.png ; echo ok ; }
 
-while : ; do for i in ` ls $dir/$hash -v ` ; do feh --bg-fill $dir/$hash/$i ; sleep $speed ; done ; done    
-   
+while : ; do for i in ` ls $dir/$hash -v ` ; do gsettings set org.gnome.desktop.background picture-uri $dir/$hash/$i ; sleep $speed ; done ; done    
+  
